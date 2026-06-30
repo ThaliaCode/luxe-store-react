@@ -36,7 +36,7 @@ pnpm install
 pnpm run dev
 ```
 
-## ⚙️ Características
+##  Características
 
 * Listado de productos consumidos desde FakeStoreAPI.
 * Página principal responsive con productos destacados.
