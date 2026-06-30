@@ -29,6 +29,13 @@ export function ProductCard({ product, addToCart }) {
         ${product.price}
       </p>
 
+      <Link
+        to={`/products/${product.id}`}
+        className="mt-3 block w-full rounded-lg border border-slate-300 py-3 text-center text-xs font-bold text-slate-800 transition hover:bg-slate-100"
+      >
+        Ver detalles
+      </Link>
+
       <button
         onClick={() => addToCart(product)}
         className="mt-3 block w-full rounded-lg bg-slate-950 py-3 text-center text-xs font-bold text-white transition duration-200 hover:bg-blue-600 active:scale-95 active:bg-blue-700"
