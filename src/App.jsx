@@ -4,6 +4,9 @@ import { Home } from './pages/Home'
 import { ProductPage } from './pages/ProductPage'
 import { NotFound } from './pages/NotFound'
 import { Explore } from './pages/Explore'
+import { CategoryPage } from './pages/CategoryPage'
+
+
 
 function App() {
   const [cartItems, setCartItems] = useState([])
@@ -42,26 +45,34 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              cartItems={cartItems}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-            />
-          }
-        />
+  <Route
+    path="/"
+    element={
+      <Home
+        cartItems={cartItems}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+      />
+    }
+  />
 
-        <Route path="/explore" element={<Explore addToCart={addToCart} />} />
+  <Route
+    path="/explore"
+    element={<Explore addToCart={addToCart} />}
+  />
 
-        <Route
-          path="/products/:id"
-          element={<ProductPage addToCart={addToCart} />}
-        />
+  <Route
+  path="/products/category/:category"
+  element={<CategoryPage addToCart={addToCart} />}
+/>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+  <Route
+    path="/products/:id"
+    element={<ProductPage addToCart={addToCart} />}
+  />
+
+  <Route path="*" element={<NotFound />} />
+</Routes>
     </BrowserRouter>
   )
 }

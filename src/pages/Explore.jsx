@@ -9,18 +9,13 @@ export function Explore({ addToCart }) {
   const { products, loading, error, getProducts } = useFetchProducts()
 
   const [searchText, setSearchText] = useState('')
-  const [activeCategory, setActiveCategory] = useState('all')
+const filteredProducts = products.filter((product) => {
+  const matchesSearch = product.title
+    .toLowerCase()
+    .includes(searchText.toLowerCase())
 
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.title
-      .toLowerCase()
-      .includes(searchText.toLowerCase())
-
-    const matchesCategory =
-      activeCategory === 'all' || product.category === activeCategory
-
-    return matchesSearch && matchesCategory
-  })
+  return matchesSearch
+})
 
   if (loading) {
     return <Loading />
@@ -70,61 +65,42 @@ export function Explore({ addToCart }) {
           <SearchBar searchText={searchText} setSearchText={setSearchText} />
         </div>
 
+        {/* CATEGORY LINKS */}
         <div className="mb-6 flex gap-3 overflow-x-auto">
-          <button
-            onClick={() => setActiveCategory('all')}
-            className={`rounded-full px-5 py-2 text-sm font-bold ${
-              activeCategory === 'all'
-                ? 'bg-slate-950 text-white'
-                : 'bg-white text-slate-700'
-            }`}
+          <Link
+            to="/explore"
+            className="rounded-full bg-slate-950 px-5 py-2 text-sm font-bold text-white"
           >
             Todos
-          </button>
+          </Link>
 
-          <button
-            onClick={() => setActiveCategory('electronics')}
-            className={`rounded-full px-5 py-2 text-sm font-bold ${
-              activeCategory === 'electronics'
-                ? 'bg-slate-950 text-white'
-                : 'bg-white text-slate-700'
-            }`}
+          <Link
+            to="/products/category/electronics"
+            className="rounded-full bg-white px-5 py-2 text-sm font-bold text-slate-700 shadow-sm"
           >
             Electronics
-          </button>
+          </Link>
 
-          <button
-            onClick={() => setActiveCategory('jewelery')}
-            className={`rounded-full px-5 py-2 text-sm font-bold ${
-              activeCategory === 'jewelery'
-                ? 'bg-slate-950 text-white'
-                : 'bg-white text-slate-700'
-            }`}
+          <Link
+            to="/products/category/jewelery"
+            className="rounded-full bg-white px-5 py-2 text-sm font-bold text-slate-700 shadow-sm"
           >
             Jewelery
-          </button>
+          </Link>
 
-          <button
-            onClick={() => setActiveCategory("men's clothing")}
-            className={`rounded-full px-5 py-2 text-sm font-bold ${
-              activeCategory === "men's clothing"
-                ? 'bg-slate-950 text-white'
-                : 'bg-white text-slate-700'
-            }`}
+          <Link
+            to="/products/category/men's%20clothing"
+            className="rounded-full bg-white px-5 py-2 text-sm font-bold text-slate-700 shadow-sm"
           >
             Men
-          </button>
+          </Link>
 
-          <button
-            onClick={() => setActiveCategory("women's clothing")}
-            className={`rounded-full px-5 py-2 text-sm font-bold ${
-              activeCategory === "women's clothing"
-                ? 'bg-slate-950 text-white'
-                : 'bg-white text-slate-700'
-            }`}
+          <Link
+            to="/products/category/women's%20clothing"
+            className="rounded-full bg-white px-5 py-2 text-sm font-bold text-slate-700 shadow-sm"
           >
             Women
-          </button>
+          </Link>
         </div>
 
         {filteredProducts.length === 0 ? (

@@ -30,9 +30,10 @@ export function Home({ cartItems, addToCart, removeFromCart }) {
     return matchesSearch && matchesCategory
   })
 
+  // MOBILE PRODUCTS - muestra solo 4 productos
   const mobileProducts = filteredProducts.slice(0, 4)
-  // fin
-  // DESKTOP PRODUCTS - solo 8 productos
+
+  // DESKTOP PRODUCTS - muestra solo 8 productos
   const desktopProducts = filteredProducts.slice(0, 8)
 
   if (loading) {

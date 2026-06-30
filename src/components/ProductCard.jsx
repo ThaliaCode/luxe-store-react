@@ -11,9 +11,9 @@ export function ProductCard({ product, addToCart }) {
             alt={product.title}
           />
 
-          <button className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-900 shadow">
+          <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-900 shadow">
             ♥
-          </button>
+          </span>
         </div>
       </Link>
 

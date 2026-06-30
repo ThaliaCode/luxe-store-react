@@ -32,7 +32,7 @@ export function ProductDetail({ product, addToCart }) {
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
-            to="/"
+            to="/explore"
             className="rounded-lg border border-slate-300 px-6 py-3 text-center font-bold text-slate-800"
           >
             Atrás
